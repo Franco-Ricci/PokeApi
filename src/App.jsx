@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPoke, getAllPokemons } from "./API";
+import { getPoke, getAllPokemons } from "./Api";
 import "./index.css";
 import { Search } from "./components/Search";
 import { Navigation } from "./components/Navigation";
