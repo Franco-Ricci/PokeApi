@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getPoke, getAllPokemons } from "./Api";
 import "./index.css";
 import { Search } from "./components/Search";
@@ -7,8 +7,7 @@ import { AllPokemonList } from "./components/AllPokemonList";
 import { PokemonSearched } from "./components/PokemonSearched";
 import { Header } from "./components/Header";
 import { Loader } from "./components/Loader";
-import { useRef } from "react";
-import { Error404 } from "./components/error404";
+import { Error404 } from "./components/Error404";
 
 function App() {
   const [poke, setPoke] = useState([]);
