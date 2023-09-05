@@ -46,6 +46,7 @@ body {
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  padding: 0px 20px;
   max-width: 800px;
 }
 
@@ -338,8 +339,13 @@ body {
   padding: 20px;
   border-radius: 100%;
   text-decoration: none;
-  border: 2px solid rgb(255, 0, 0);
-  background-color: white;
+  border: 2px solid #ff3434;
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 68, 99) 0%,
+    rgb(255, 7, 48) 50%,
+    rgb(255, 255, 255) 50%,
+    rgb(237, 255, 255) 100%);
   font-weight: 700;
   font-size: 20px;
   font-family: "Handjet", cursive;
@@ -349,14 +355,52 @@ body {
 
 .pagination__btn:hover {
   border: 2px solid rgb(0, 0, 0);
-  background-color: rgb(255, 0, 0);
-  color: white;
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 68, 99) 0%,
+    rgb(238, 41, 74) 50%,
+    rgb(255, 255, 255) 50%,
+    rgb(237, 255, 255) 100%);
+    color:rgb(0, 0, 0);
   animation: 2s ease-in-out;
 }
+
 
 .pokemon__error{
   display: flex;
   justify-content:center;
+  margin-top: 30px;
   font-size: 3rem;
   font-weight: 700;
+}
+
+.errorPage__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 30px;
+}
+
+.errorPage__Text{
+  font-size: 5em;
+  font-weight: 700;
+}
+
+.errorPage__btn{
+  padding:10px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.errorPage__btn:hover{
+  padding:10px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  background-color: #ff3434;
+  color: white;
 }

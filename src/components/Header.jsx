@@ -1,13 +1,14 @@
 // eslint-disable-next-line react/prop-types
-export function Header ({refreshPage, Search, error}){
+export function Header ({ Search, error}){
     return (
         <div className="title__container">
         <img
-          onClick={refreshPage}
+          
           className="title__img"
           src="../public\International_Pokémon_logo.svg.png"
           alt="Pokemon"
           aria-label="Pokemon Logo"
+          onClick={() =>  window.location.reload()} 
         />
 
         {Search}
