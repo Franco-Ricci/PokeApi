@@ -1,14 +1,16 @@
 
 export async function getPoke({pagine,setPagine, setErrorFetch}){
-    let API_URL 
+    // eslint-disable-next-line no-undef
+    const API_URL = process.env.API_URL || "https://pokeapi.co/api/v2/pokemon/";
 
+    let URL
     if(pagine == "" || pagine == null){
-        API_URL = "https://pokeapi.co/api/v2/pokemon/"
+        URL = API_URL
     }else{
-        API_URL= pagine
+        URL= pagine
     }
     try {
-        console.log("Fetching data from:", API_URL);
+        console.log("Fetching data from:", URL);
 
         const response = await fetch(API_URL)
         console.log(response);
