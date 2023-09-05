@@ -101,7 +101,7 @@ function App() {
       }
     }
     data();
-  }, [pagine, errorFetch]);
+  }, [pagine]);
 
   return (
     <>

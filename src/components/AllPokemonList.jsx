@@ -14,7 +14,7 @@ export function AllPokemonList({poke}){
         <img
           className="pokemon__img"
           src={pokemon.image}
-          alt="pokemon image"
+          alt={pokemon.name}
         />
         <p className="pokemon__id">#{pokemon.id}</p>
         {pokemon.type && pokemon.type.length > 0 && (
