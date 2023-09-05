@@ -11,6 +11,7 @@ export async function getPoke({pagine,setPagine, setErrorFetch}){
         console.log("Fetching data from:", API_URL);
 
         const response = await fetch(API_URL)
+        console.log(response);
 
         if (!response.ok) {
             console.log(!response.ok)
