@@ -1,16 +1,16 @@
 
 export async function getPoke({pagine,setPagine, setErrorFetch}){
-    let API 
+    let API_URL 
 
     if(pagine == "" || pagine == null){
-        API = "https://pokeapi.co/api/v2/pokemon/"
+        API_URL = "https://pokeapi.co/api/v2/pokemon/"
     }else{
-        API= pagine
+        API_URL= pagine
     }
     try {
-        console.log("Fetching data from:", API);
+        console.log("Fetching data from:", API_URL);
 
-        const response = await fetch(API)
+        const response = await fetch(API_URL)
 
         if (!response.ok) {
             console.log(!response.ok)
