@@ -5,7 +5,7 @@ export function Header ({ Search, error}){
         <img
           
           className="title__img"
-          src="../public\International_Pokémon_logo.svg.png"
+          src="../International_Pokémon_logo.svg.png"
           alt="Pokemon"
           aria-label="Pokemon Logo"
           onClick={() =>  window.location.reload()} 
