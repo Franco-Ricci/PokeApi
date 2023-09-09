@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { getPoke, getAllPokemons } from "./Api";
+import { getPoke,  getAllPokemons } from "./Api";
 import "./index.css";
 import { Search } from "./components/Search";
 import { Navigation } from "./components/Navigation";
@@ -28,7 +28,7 @@ function App() {
   
   const [loading, setLoading] = useState(true);
 
-  const [pagine, setPagine] = useState("");
+  const [pagine, setPagine] = useState("https://pokeapi.co/api/v2/pokemon/");
 
 
   const scrollUp = useRef(null);
@@ -85,34 +85,20 @@ function App() {
   }, []);
 
 
-//handle pagination and make an api call for 20 pokemons
   useEffect(() => {
-    async function data() {
-      try {
-        const prob = await getPoke({ pagine, setPagine, setErrorFetch});
-        setPoke(prob);
-        console.log(pagine)
-         setLoading(false); 
-             
-      } catch (error) {
-        console.error(error.message);
-
-        setLoading(false); 
-      }
-    }
-    data();
+    getPoke({pagine, setPagine, setPoke, setErrorFetch})
   }, [pagine]);
-
+  
   return (
     <>
       <main className="container" ref={scrollUp}>
       {errorFetch && (<Error404/>)}
-        {!loading && (
+        {!loading && errorFetch == null &&(
           <Header Search={<Search handleSearch={handleSearch} />} error={error} />
        )}
 
         <div className="pokemon__container">
-          {loading && (
+          {loading && errorFetch ==null &&(
             <Loader/>
           )}{" "}
           {hasSearched == false
@@ -125,7 +111,7 @@ function App() {
             : ""}
         </div>
 
-        {!loading && search === "" && (
+        {!loading && search === "" && errorFetch ==null && (
           <Navigation pagine={pagine} setPagine={setPagine}/>
         )}
       </main>
