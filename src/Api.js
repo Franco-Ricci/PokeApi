@@ -17,18 +17,16 @@ fetch(pagine)
   let allData = data.results
 
   Promise.all(
-    allData.map((result)=>{
+    allData.map(async (result)=>{
      let urlPoke = result.url
-    return fetch(urlPoke)
-     .then(response => response.json())
-     .then((pokeData) => ({
-  
+    const response = await fetch(urlPoke);
+      const pokeData = await response.json();
+      return ({
         id: pokeData.id,
         name: pokeData.name,
         image: pokeData.sprites.other.dream_world.front_default,
         type: pokeData.types.map(type => type.type.name)
-      
-  })) 
+      }); 
 }))
 .then((pokemonData) => {
   setPoke(pokemonData)
