@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 
+import { Loader } from "./Loader";
 
 // eslint-disable-next-line react/prop-types
 export function Navigation({pagine, setPagine}){
+  if (!pagine) {
 
+    return <Loader />;
+  }
     return (
         
             <div className="pagination__container">

@@ -339,7 +339,7 @@ body {
   padding: 20px;
   border-radius: 100%;
   text-decoration: none;
-  border: 2px solid #ff3434;
+  border: 2px solid #000000;
   background: linear-gradient(
     to bottom,
     rgb(255, 68, 99) 0%,
@@ -353,18 +353,19 @@ body {
   cursor: pointer;
 }
 
-.pagination__btn:hover {
-  border: 2px solid rgb(0, 0, 0);
-  background: linear-gradient(
-    to bottom,
-    rgb(255, 68, 99) 0%,
-    rgb(238, 41, 74) 50%,
-    rgb(255, 255, 255) 50%,
-    rgb(237, 255, 255) 100%);
-    color:rgb(0, 0, 0);
-  animation: 2s ease-in-out;
-}
-
+@media (hover: hover) {
+  .pagination__btn:hover {
+    border: 2px solid rgb(212, 2, 2);
+    background: linear-gradient(
+      to bottom,
+      rgb(255, 68, 99) 0%,
+      rgb(238, 41, 74) 50%,
+      rgb(255, 255, 255) 50%,
+      rgb(237, 255, 255) 100%);
+      color:rgb(0, 0, 0);
+    animation: 2s ease-in-out;
+  }
+  }
 
 .pokemon__error{
   display: flex;

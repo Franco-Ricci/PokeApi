@@ -46,7 +46,7 @@ function App() {
 
   //save the search value in state
   function handleSearch(e) {
-    let newSearch = e.currentTarget.value;
+    let newSearch = e.currentTarget.value.toLowerCase();
     setSearch(newSearch);
   }
 
