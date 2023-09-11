@@ -22,7 +22,6 @@ function App() {
   const [error, setError] = useState("");
 
   //state to handle fetch error
-  const [errorFetch, setErrorFetch] = useState(null);
 
   const [hasSearched, setHasSearched] = useState(true);
   
@@ -70,7 +69,7 @@ function App() {
   useEffect(() => {
     async function searchPokemon() {
       try {
-        let allPokes = await getAllPokemons({setErrorFetch});
+        let allPokes = await getAllPokemons();
 
         setAllPokemons(allPokes);
 
@@ -85,19 +84,19 @@ function App() {
 
 
   useEffect(() => {
-    getPoke({pagine, setPagine, setPoke, setErrorFetch})
+    getPoke({pagine, setPagine, setPoke})
   }, [pagine]);
   
   return (
     <>
       <main className="container" ref={scrollUp}>
 
-        {!loading && errorFetch == null &&(
+        {!loading && (
           <Header Search={<Search handleSearch={handleSearch} />} error={error} />
        )}
 
         <div className="pokemon__container">
-          {loading && errorFetch ==null &&(
+          {loading && (
             <Loader/>
           )}{" "}
           {hasSearched == false
@@ -110,7 +109,7 @@ function App() {
             : ""}
         </div>
 
-        {!loading && search === "" && errorFetch ==null && (
+        {!loading && search === "" && (
           <Navigation pagine={pagine} setPagine={setPagine}/>
         )}
       </main>

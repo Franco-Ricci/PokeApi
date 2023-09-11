@@ -1,11 +1,10 @@
 
-export function getPoke({pagine,setPagine,setPoke, setErrorFetch}){
+export function getPoke({pagine,setPagine,setPoke}){
 
 
 fetch(pagine)
 .then((response) => {
   if (!response.ok) {
-     setErrorFetch(true)
     throw new Error(`Network response was not ok (${response.status})`);
   }
   return response.json();
@@ -40,13 +39,13 @@ fetch(pagine)
   })
 }
 
-export async function getAllPokemons ({setErrorFetch}){
+export async function getAllPokemons (){
     const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
 
     try {
         const response = await fetch(API_URL)
         if(!response.ok){
-            setErrorFetch(true)
+          throw new Error(`Network response was not ok (${response.status})`);
         }
         const json = await response.json()
 
