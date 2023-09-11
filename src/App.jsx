@@ -7,7 +7,7 @@ import { AllPokemonList } from "./components/AllPokemonList";
 import { PokemonSearched } from "./components/PokemonSearched";
 import { Header } from "./components/Header";
 import { Loader } from "./components/Loader";
-import { Error404 } from "./components/Error404";
+
 
 function App() {
   const [poke, setPoke] = useState([]);
@@ -58,8 +58,7 @@ function App() {
       setResults(busqueda);
       setError(busqueda.length === 0);
       setHasSearched(null);
-      console.log(search);
-      console.log(results);
+
     } else {
       setResults([]);
       setError(false);
@@ -92,7 +91,7 @@ function App() {
   return (
     <>
       <main className="container" ref={scrollUp}>
-      {errorFetch && (<Error404/>)}
+
         {!loading && errorFetch == null &&(
           <Header Search={<Search handleSearch={handleSearch} />} error={error} />
        )}
